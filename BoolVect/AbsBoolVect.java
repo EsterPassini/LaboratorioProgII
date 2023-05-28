@@ -1,6 +1,8 @@
-package BoolVect;
+
 
 import java.util.Objects;
+
+//EFFICIENZA BLEEEE
 
 //DESCRIZIONE: questa classe astratta che implementa l'interfaccia BoolVect, rappresenta un vettore di booleani 
 public abstract class AbsBoolVect implements BoolVect{
@@ -32,12 +34,8 @@ public abstract class AbsBoolVect implements BoolVect{
             throw new IllegalArgumentException("vettori non compatibili per un operazione");
         
         if (b.dimensione()<dimensione()){
-
             for (int i=0; i<b.dimensione(); i++ ){
                     scriviPos(i, (leggiPos(i) && b.leggiPos(i)));
-            }
-            for (int i=b.dimensione(); i<dimensione(); i++ ){    
-                scriviPos(i, leggiPos(i));   
             }
 
         } else {
@@ -64,9 +62,6 @@ public abstract class AbsBoolVect implements BoolVect{
             for (int i=0; i<b.dimensione(); i++ ){
                     scriviPos(i, (leggiPos(i) || b.leggiPos(i)));
             }
-            for (int i=b.dimensione(); i<dimensione(); i++ ){    
-                scriviPos(i, leggiPos(i));   
-            }
 
         } else {
 
@@ -91,9 +86,6 @@ public abstract class AbsBoolVect implements BoolVect{
 
             for (int i=0; i<b.dimensione(); i++ ){
                 scriviPos(i, ((leggiPos(i) && !b.leggiPos(i)) || (!leggiPos(i) && b.leggiPos(i))));
-            }
-            for (int i=b.dimensione(); i<dimensione(); i++ ){    
-                scriviPos(i, leggiPos(i));   
             }
 
         } else {

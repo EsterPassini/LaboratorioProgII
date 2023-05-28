@@ -1,4 +1,3 @@
-package BoolVect;
 
 import java.util.Objects;
 

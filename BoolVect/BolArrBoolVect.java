@@ -1,4 +1,3 @@
-package BoolVect;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -41,7 +40,7 @@ public class BolArrBoolVect extends AbsBoolVect{
     public boolean leggiPos(int i) throws IndexOutOfBoundsException {
         if (i>taglia())
             throw new IndexOutOfBoundsException("indice maggiore di taglia, non accettato");
-        if (i>dimensione())
+        if (i>=dimensione())
             return false;
         return vect.get(i);
     }
@@ -50,7 +49,23 @@ public class BolArrBoolVect extends AbsBoolVect{
     public void scriviPos(int i, boolean val) throws IndexOutOfBoundsException {
         if (i>taglia())
             throw new IndexOutOfBoundsException("indice maggiore di taglia, non accettato");
-        vect.add (i, val);
+        vect.remove(i);
+        vect.add(i, val);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("") ;
+        for (int i= 0; i<dimensione(); i++){
+            if (leggiPos(i))
+                sb.append("T");
+            else 
+                sb.append("F");
+        }
+        
+        return sb.toString();
+    }
+
+    
     
 }

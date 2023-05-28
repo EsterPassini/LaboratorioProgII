@@ -1,4 +1,4 @@
-package BoolVect;
+
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -30,7 +30,7 @@ public class ArrBoolVect extends AbsBoolVect{
             if (el <0)
                 throw new IllegalArgumentException("vet non deve contenere valori < di 0");
         }
-        
+
         int max = 0;
         for (Integer i : vet) {
             if (i>max)
@@ -50,7 +50,7 @@ public class ArrBoolVect extends AbsBoolVect{
             if (i>max)
                 max = i;
         };
-        return max;
+        return max+1;
      }
  
 
@@ -66,12 +66,20 @@ public class ArrBoolVect extends AbsBoolVect{
         if (taglia()< i)
         throw new IndexOutOfBoundsException("indice > di taglia non avccettabile");
         if (!val){
-            vet.remove(i);
+            if (vet.contains(i))
+                vet.remove((Integer)i);
         } else {
             if (!vet.contains(i))
             vet.add(i);
         }
     
     }
+
+    @Override
+    public String toString() {
+        return "{true nelle pos=" + vet + " taglia: "+ taglia() + "}";
+    }
+
+    
  
 }
