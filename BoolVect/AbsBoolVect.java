@@ -2,7 +2,7 @@
 
 import java.util.Objects;
 
-//EFFICIENZA BLEEEE
+//EFFICIENZA BLEEEE :(
 
 //DESCRIZIONE: questa classe astratta che implementa l'interfaccia BoolVect, rappresenta un vettore di booleani 
 public abstract class AbsBoolVect implements BoolVect{
