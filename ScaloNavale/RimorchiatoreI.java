@@ -1,42 +1,22 @@
-
-/*
- * questa classe astratta rappresenta il tipo rimorchiatore, una nave il cui compito è quello di spostare cargo da un molo all'altro
- * possiede uno scalo nel quale lavora
- */
-
 import java.util.Objects;
 
-public abstract class Rimorchiatore{
-    //Campi
-    private String scaloNavale;
+public interface RimorchiatoreI {
 
-    /*
-     * AF: scaloNavale rappresenta lo scalo navale in cui lavora questo rimorchiatore
-     * 
-     * IR: scaloNavale non deve essere null
-     */
-    
-    public Rimorchiatore(String scaloNavale) {
-        Objects.requireNonNull(scaloNavale, "scaloNavale non deve essere null");
-        this.scaloNavale = scaloNavale;
-    }
 
     //EFFECTS: restituisce il peso della prima nave attraccata nel molo di input, se esso è vuoto restituisce 0, 
     //          solleva un eccezione se molo è null
-    public int RichiediPesoPrimaNave(Molo m){
+    default public int RichiediPesoPrimaNave(Molo m){
         Objects.requireNonNull(m, "molo nn deve essere null");
-
         return m.PesoPrimaNave();
     };
 
-    public abstract int PesoNaviTrasportate();
-
-    //abstract void Sposta(Molo a, Molo b, int n);
+    //EFFECTS: restituisce il peso di tutte le navi trasportate in un viaggio dal rimorchiatore, se esso è vuoto restituisce 0
+    public int PesoNaviTrasportate();
 
     //MODIFIES: a, b
     //EFFECTS: questo metodo sposta 1 nave dal molo a al molo b, solleva un eccezione se a o b sono nulli, restituisce true se 
     //          lo stostamento è avvenuto bene, false se a non ha attraccata neanche 1 nave
-    public boolean Sposta(Molo a, Molo b){
+    default public boolean Sposta(Molo a, Molo b){
         Objects.requireNonNull(a, "molo di partenza non deve essere null");
         Objects.requireNonNull(b, "molo di arrivo non deve essere null");
         if (a.NumeroNavi() ==0)
@@ -49,14 +29,10 @@ public abstract class Rimorchiatore{
     //MODIFIES: a, b
     //EFFECTS: questo metodo sposta n navi insieme dal molo a al molo b, solleva un eccezione se a o b sono nulli, restituisce true se 
     //          lo stostamento è avvenuto bene, false se a non ha attraccata n navi, in questo caso non ne sposta neanche una
-    abstract public boolean Sposta(Molo a, Molo b, int n);
+    public boolean Sposta(Molo a, Molo b, int n);
 
-
-    /*
-     * EFFECTS: restituisce lo scalo in cui lavora il rimorchiatore
-     */
-    public String getScaloNavale() {
-        return scaloNavale;
-    }
+    
 
 }
+
+

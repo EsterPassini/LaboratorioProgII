@@ -1,5 +1,5 @@
 //un molo è una struttura da cui possono salpare e attraccare delle navi cargo,
-//Ciascun molo si comporta come una sorta di fila ( che può essere eventualmente vuota) di navi cargo 
+//Ciascun molo si comporta come una sorta di fila (che può essere eventualmente vuota) di navi cargo 
 //dalla fine della quale esse possono salpare e attraccare una alla volta. 
 //Altrimenti detto, il primo di una sequenza di cargo che attraccano sarà l'ultimo a salpare
 
@@ -12,6 +12,8 @@ public class Molo {
 
     /*
      * AF: molo rappresenta le navi attraccate ad un molo in un determinato momento 
+     * esempio: indici:     0      |    1       ...
+     *          navi:   1 che esce | 2 che esce ...
      * 
      * IR: molo deve essere non null e non può contenere navi null
     */
@@ -59,7 +61,7 @@ public class Molo {
 
      @Override
      public String toString() {
-         return "Molo [molo=" + molo + "]";
+         return "Molo " + molo + " ";
      }
 
     
