@@ -28,8 +28,8 @@ public class Cargo {
     /*
      * AF: name rappresenta il nome del cargo e peso il peso
      * 
-     * IR: name deve essere diverso da null, peso >=0
-     */
+     * IR: name deve essere diverso da null, peso >=0*/
+     
      public Cargo(String name, int peso){
         if (peso<=0 || name == null)
             throw new IllegalArgumentException("peso nn può essere minore o uguale a zero e name deve essere non null");

@@ -37,7 +37,7 @@ public class test {
         System.out.println("minR" + minR);
         System.out.println("prudR");*/
 
-        minR.Sposta(a, b, 2);
+        supR.Sposta(a, b, 2);
         System.out.println("scalo: " + scalo);
 
     }
